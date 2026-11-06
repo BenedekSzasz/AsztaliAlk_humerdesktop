@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class EmployeeController {
 
@@ -36,8 +37,18 @@ public class EmployeeController {
     private TableView<Employee> table;
 
     @FXML
-    void onClickAddButton(ActionEvent event) {
+    void initialize() {
+        System.out.println("Működik...");
 
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
+        salaryCol.setCellValueFactory(new PropertyValueFactory<>("salary"));
+    }
+
+    @FXML
+    void onClickAddButton(ActionEvent event) {
+        
     }
 
     @FXML
