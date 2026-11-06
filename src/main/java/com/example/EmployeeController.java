@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.List;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -44,6 +46,11 @@ public class EmployeeController {
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
         salaryCol.setCellValueFactory(new PropertyValueFactory<>("salary"));
+
+        EmployeeRepository repo = new EmployeeRepository();
+        List<Employee> empList = repo.readEmployee();
+
+        table.getItems().addAll(empList);
     }
 
     @FXML
